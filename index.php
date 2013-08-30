@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","NtioNt10","ccbin_pastes");
+$con=mysqli_connect("localhost","ccbin","PqSFrY6pJUzHLEYS","ccbin_pastes");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -22,7 +22,7 @@ if ($_GET['id']) {
     $pdata = ccbin_get();
     //var_dump($pdata);
  echo '<h1>'.$pdata['name'].'</h1>';
- echo '<div class="paste"><pre><code>'.$pdata['contents'].'</code></pre></div>';
+ echo '<div class="paste"><pre><code>'.htmlspecialchars($pdata['contents']).'</code></pre></div>';
  echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a>';
 } else {
     echo '<h1>New Paste</h1>';
