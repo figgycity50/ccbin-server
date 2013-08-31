@@ -5,7 +5,7 @@ include_once 'header.php';
 <div class="jumbotron">
   <div class="container">
     <h1>Sign in to CCBin</h1>
-    <p>You will not regret it.</p>
+    <p>Don't have account?</p>
     <p><a class="btn btn-primary btn-lg" href="register.php">Register</a></p>
   </div>
 </div>
