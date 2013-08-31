@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","ccbin","PqSFrY6pJUzHLEYS","ccbin_pastes");
+$con=mysqli_connect("localhost","root","NtioNt10","ccbin_pastes");
 // Check connection
 if (mysqli_connect_errno())
   {
