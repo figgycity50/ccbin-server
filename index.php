@@ -17,7 +17,7 @@ if ($_GET['id']) {
     //var_dump($pdata);
  echo '<h1>'.$pdata['name'].'</h1>';
  echo '<div class="paste"><pre><code>'.htmlspecialchars($pdata['contents']).'</code></pre></div>';
- echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a>';
+ echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a><a class="btn btn-success" id="copy" href="#">Copy</a>';
 } else {
     echo '<h1>New Paste</h1>';
     echo '<form method="POST" action="api.php"> Title:';

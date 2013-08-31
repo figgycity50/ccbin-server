@@ -25,7 +25,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-<a class="navbar-brand" href="#">CCBin</a>
+<a class="navbar-brand" href="index.php"><img src="../img/CCbin_logo.png" height="32" width="64" alt="CCbin"></a>
 <div class="pull-right">
 <?php
 if ($_COOKIE['login']) {
@@ -33,7 +33,7 @@ if ($_COOKIE['login']) {
 <div class="dropdown">
   <!-- Link or button to toggle dropdown -->
   <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-  <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>"
+  <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>?s=64"> <?php echo $_COOKIE['login']; ?> 
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation"><a role="menuitem" tabindex="-1" href="pastes.php">My pastes</a></li>

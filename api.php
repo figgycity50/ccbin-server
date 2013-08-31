@@ -1,12 +1,13 @@
 <?php
-$con=mysqli_connect("localhost","root","NtioNt10","ccbin_pastes");
+$prefix=""; //In case you want have more that 1 database
+$con=mysqli_connect("localhost","root","NtioNt10","ccbin");
 // Check connection
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($_GET['type'] == 'get') {
-    $result = mysqli_query($con,"SELECT * FROM pastes WHERE id='".$_GET['id']."'");
+    $result = mysqli_query($con,"SELECT * FROM ".prefix."pastes WHERE id='".$_GET['id']."'");
     $paste_data = mysqli_fetch_array($result);
     //temp vardump.
     //var_dump($paste_data);

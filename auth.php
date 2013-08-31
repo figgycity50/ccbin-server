@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","NtioNt10","ccbin_users");
+$con=mysqli_connect("localhost","root","NtioNt10","ccbin");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -7,14 +7,14 @@ if (mysqli_connect_errno())
   }
 // Prepare variables and hash.
 $uid = hash("SHA512", $_POST['email']);
-$hashp = hash("SHA512", $_POST['passwd']);
+$hashp = hash("SHA512", $_POST['password']);
 // Check for data in the tables.
-$result = mysqli_query($con,"SELECT * FROM table WHERE uid='".$uid."' AND password='".$passwd."'");
+$result = mysqli_query($con,"SELECT * FROM users WHERE uid='".$uid."' AND password='".$hashp."'");
 $user_data = mysqli_fetch_array($result);
-if (!$user_data) {
-    header("Location: login_fail.php");
-} else {
+if ($user_data) {
     setcookie("login",$_POST['email']);
     header("Location: index.php");
+} else {
+    header("Location: login_fail.php");
 }
 ?>
