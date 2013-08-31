@@ -1,10 +1,4 @@
 <?php
-$con=mysqli_connect("localhost","ccbin","PqSFrY6pJUzHLEYS","ccbin_pastes");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
 // CCBin by figgycity50
 
 //set 1. load stuff

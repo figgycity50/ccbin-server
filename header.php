@@ -17,7 +17,8 @@
 <link rel="stylesheet" href="../css/googlecode.css">
 <script src="../js/highlight.pack.js"></script>
 <script>
-  $('.dropdown-toggle').dropdown()
+  $('.dropdown-toggle').dropdown();
+  $('#loginBtn').click($('#myModal').modal('toggle'));
   hljs.tabReplace = '    ';
   hljs.initHighlightingOnLoad();
   </script>
