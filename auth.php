@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","NtioNt10","ccbin_users");
+$con=mysqli_connect("localhost","root","NtioNt10","ccbin");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -9,7 +9,7 @@ if (mysqli_connect_errno())
 $uid = hash("SHA512", $_POST['email']);
 $hashp = hash("SHA512", $_POST['passwd']);
 // Check for data in the tables.
-$result = mysqli_query($con,"SELECT * FROM table WHERE uid='".$uid."' AND password='".$passwd."'");
+$result = mysqli_query($con,"SELECT * FROM users WHERE uid='".$uid."' AND password='".$passwd."'");
 $user_data = mysqli_fetch_array($result);
 if (!$user_data) {
     header("Location: login_fail.php");

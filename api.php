@@ -1,6 +1,6 @@
 <?php
 $prefix=""; //In case you want have more that 1 database
-$con=mysqli_connect("localhost","root","NtioNt10","ccbin_pastes");
+$con=mysqli_connect("localhost","root","NtioNt10","ccbin");
 // Check connection
 if (mysqli_connect_errno())
   {
