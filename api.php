@@ -10,11 +10,12 @@ if ($_GET['type'] == 'get') {
     $paste_data = mysqli_fetch_array($result);
     //temp vardump.
     //var_dump($paste_data);
+    if ($paste_data['title'] == "") $paste_data['title'] = "Untitled";
     if ($_GET['data'] == 'json') {
        $json_paste = json_encode($paste_data);
        echo $json_paste;
     } else {
-        echo '{name="'.$paste_data['name'].'", contents= "'.$paste_data['contents'].'"}';
+        echo '{id='.$paste_data['id'].', name="'.$paste_data['name'].'", contents= "'.$paste_data['contents'].'"}';
     }
 }
 if ($_POST['type'] == 'make') {
