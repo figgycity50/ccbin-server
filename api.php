@@ -46,7 +46,7 @@ function get_random_string($valid_chars, $length)
 }
 $pattern = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 $code = get_random_string($pattern, 6);
-if ($_POST['title'] == "") $_POST['title'] = Untitled;
+if ($_POST['title'] == "") $_POST['title'] = "Untitled";
 mysqli_query($con,"INSERT INTO pastes SET id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "'");
 if ($_POST['head'] == 'true') {
     header("Location: index.php?id=".$code);
