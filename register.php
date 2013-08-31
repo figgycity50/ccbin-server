@@ -8,7 +8,7 @@ include_once 'header.php';
     <p>You will not regret it.</p>
   </div>
 </div>
-<form method="POST" action="auth.php">
+<form method="POST" action="account_new.php">
 <input type="text" placeholder="Username..." class="form-control" style="width: 25%" name="username"><br>
 <input type="email" placeholder="Email..." class="form-control" style="width: 25%" name="email"><br>
 <input type="password" placeholder="Password..." class="form-control" style="width: 25%" name="password"><br>
