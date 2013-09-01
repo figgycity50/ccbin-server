@@ -9,11 +9,10 @@ if (mysqli_connect_errno())
 $uid = hash("SHA512", $_POST['email']);
 $hashp = hash("SHA512", $_POST['password']);
 // Check for data in the tables.
-<<<<<<< HEAD
+//git?<<<<<<< HEAD
 $result = mysqli_query($con,"SELECT * FROM users WHERE uid='".$uid."' AND password='".$hashp."'");
-=======
-$result = mysqli_query($con,"SELECT * FROM users WHERE uid='".$uid."' AND password='".$hashup."'");
->>>>>>> 55377a097b9016d780fd31e2fc841a0f247339c3
+//git?=======
+//git? >>>>>>> 55377a097b9016d780fd31e2fc841a0f247339c3
 $user_data = mysqli_fetch_array($result);
 if ($user_data) {
     setcookie("login",$_POST['email']);
