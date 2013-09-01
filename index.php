@@ -15,7 +15,12 @@ function ccbin_get() {
 if ($_GET['id']) {
     $pdata = ccbin_get();
     //var_dump($pdata);
- echo '<h1>'.$pdata['name'].'</h1>';
+    if ($pdata['owner'] == "") {
+        $owner = "a guest user";
+    } else {
+        $owner = $pdata['owner'];
+    }
+ echo '<h1>'.$pdata['name'].'</h1><h4> by '.$owner.'</h4>';
  echo '<div class="paste"><pre><code>'.htmlspecialchars($pdata['contents']).'</code></pre></div>';
  echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a><a class="btn btn-success" id="copy" href="#">Copy</a>';
 } else {
