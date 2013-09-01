@@ -9,12 +9,12 @@ if (mysqli_connect_errno())
 $uid = hash("SHA512", $_POST['email']);
 $hashp = hash("SHA512", $_POST['password']);
 // Check for data in the tables.
-$result = mysqli_query($con,"SELECT * FROM users WHERE uid='".$uid."' AND password='".$hashup."'");
+$result = mysqli_query($con,"SELECT * FROM users WHERE uid='".$uid."' AND password='".$hashp."'");
 $user_data = mysqli_fetch_array($result);
-if (!$user_data) {
-    header("Location: login_fail.php");
-} else {
+if ($user_data) {
     setcookie("login",$_POST['email']);
     header("Location: index.php");
+} else {
+    header("Location: login_fail.php");
 }
 ?>

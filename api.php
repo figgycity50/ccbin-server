@@ -7,7 +7,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($_GET['type'] == 'get') {
-    $result = mysqli_query($con,"SELECT * FROM ".prefix."pastes WHERE id='".$_GET['id']."'");
+    $result = mysqli_query($con,"SELECT * FROM ".$prefix."pastes WHERE id='".$_GET['id']."'");
     $paste_data = mysqli_fetch_array($result);
     //temp vardump.
     //var_dump($paste_data);
@@ -46,9 +46,11 @@ function get_random_string($valid_chars, $length)
     // return our finished random string
     return $random_string;
 }
+$result = mysqli_query($con,"SELECT * FROM users WHERE email='".$_COOKIE['login']."'");
+$user_data = mysqli_fetch_array($result);
 $pattern = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 $code = get_random_string($pattern, 6);
-mysqli_query($con,"INSERT INTO pastes SET id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "'");
+mysqli_query($con,"INSERT INTO pastes SET id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "', owner = '".$user_data['username']."'");
 if ($_POST['head'] == 'true') {
     header("Location: index.php?id=".$code);
 } else
