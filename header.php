@@ -33,7 +33,7 @@ if ($_COOKIE['login']) {
 <div class="dropdown">
   <!-- Link or button to toggle dropdown -->
   <a data-toggle="dropdown" href="#" class="dropdown-toggle navbar-text" style="text-decoration: none;">
-  <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>?s=24"> <?php echo $_COOKIE['login']; ?>
+  <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>?s=24&d=mm"> <?php echo $_COOKIE['login']; ?>
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation"><a role="menuitem" tabindex="-1" href="pastes.php">My pastes</a></li>
