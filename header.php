@@ -25,7 +25,7 @@
 </head>
 <body>
 <nav class="navbar navbar-default">
-<a class="navbar-brand" href="index.php"><img src="logo.png" height="32" width="64" alt="CCbin"></a>
+<a class="navbar-brand" href="index.php"><img src="http://i.imgur.com/9eeXRtJ.png" alt="CCbin"></a>
 <div class="pull-right">
 <?php
 if ($_COOKIE['login']) {
