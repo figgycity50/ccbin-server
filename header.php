@@ -22,6 +22,9 @@
   hljs.tabReplace = '    ';
   hljs.initHighlightingOnLoad();
   </script>
+  
+<!--Icon-->
+<link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
 <nav class="navbar navbar-default">
