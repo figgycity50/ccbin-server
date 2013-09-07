@@ -34,8 +34,8 @@ if ($_GET['nyp'] == "yes") {
 } else {
     echo '<h1>New Paste</h1>';
     echo '<form method="POST" action="api.php"> Title:';
-    echo '<input type="text" name="title"><br>';
-    echo '<textarea name="paste" style="width:75%; height:500px;"></textarea><br>';
+    echo '<input type="text" name="title" class="form-control"><br>';
+    echo '<textarea name="paste" style="width:100%; height:100%; resize: none;" class="form-control"></textarea><br>';
     echo '<input type="hidden" name="type" value="make">';
     echo '<input type="hidden" name="head" value="true">';
     echo '<input type="submit" class="btn btn-default" value="Create Paste">';
