@@ -22,7 +22,7 @@ if ($_GET['id']) {
     }
  echo '<h1>'.$pdata['name'].'</h1><h4> by '.$owner.'</h4>';
  echo '<div class="paste"><pre><code>'.htmlspecialchars($pdata['contents']).'</code></pre></div>';
- echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a><a class="btn btn-success" id="copy" href="#">Copy</a>';
+ echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a> <a class="btn btn-success" id="copy" href="#">Copy</a> <a class="btn btn-warning" id="copy" href="edit.php?id='.$_GET['id'].'">Edit</a>';
 } else {
     echo '<h1>New Paste</h1>';
     echo '<form method="POST" action="api.php"> Title:';
