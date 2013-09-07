@@ -10,6 +10,6 @@ if ($owner == $paste_data['owner']) {
 mysqli_query($con,"UPDATE pastes SET contents = '".$_POST['paste']."' WHERE id='".$_POST['id']."'");
 header('Location: index.php?id=' . $id);
 } else {
-  echo 'Why are you trying to edit someone else\'s paste? It is kinda rude.';  
+header('Location: index.php?id=' . $id . '&nyp=yes');
 }
 ?>

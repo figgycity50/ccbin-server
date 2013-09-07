@@ -50,7 +50,10 @@ $result = mysqli_query($con,"SELECT * FROM users WHERE email='".$_COOKIE['login'
 $user_data = mysqli_fetch_array($result);
 $pattern = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 $code = get_random_string($pattern, 6);
-mysqli_query($con,"INSERT INTO pastes SET id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "', owner = '".$user_data['username']."'");
+//make a UNIX timestamp
+$time = time();
+//make the paste
+mysqli_query($con,"INSERT INTO pastes SET time = '" . $time . "', id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "', owner = '".$user_data['username']."'");
 if ($_POST['head'] == 'true') {
     header("Location: index.php?id=".$code);
 } else
