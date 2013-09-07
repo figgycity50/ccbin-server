@@ -5,6 +5,8 @@
 <!--bootstrap stuff-->
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<!-- add our mobile css -->
+<link rel="stylesheet" href="mobile.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
@@ -49,7 +51,6 @@ if ($_COOKIE['login']) {
 <?php
 } else {
 ?>
-<div class="navbar-text">in progress, don't use! --></div>
 <ul class="nav navbar-nav">
 <li><a href="login.php">Log In</a></li>
 </div>

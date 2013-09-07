@@ -10,7 +10,7 @@ include_once 'header.php';
   </div>
 </div>
 <form method="POST" action="auth.php">
-<input type="email" placeholder="Email..." class="form-control" style="width: 25%" name="email"><br>
-<input type="password" placeholder="Password..." class="form-control" style="width: 25%" name="password"><br>
+<input type="email" placeholder="Email..." class="form-control" name="email"><br>
+<input type="password" placeholder="Password..." class="form-control" name="password"><br>
 <input type="submit" value="Login" class="btn btn-primary">
 </form>
