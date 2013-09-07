@@ -8,5 +8,5 @@ include_once 'header.php';
 <form method="POST" action="edit_script.php">
 <textarea name="paste" style="width:75%; height:500px;"><?php echo $paste_data['contents']; ?></textarea><br>
     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-    <input type="submit" class="btn btn-default" value="Create Paste">
+    <input type="submit" class="btn btn-default" value="Edit Paste">
 </form>
