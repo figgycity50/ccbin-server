@@ -20,9 +20,17 @@ if ($_GET['id']) {
     } else {
         $owner = $pdata['owner'];
     }
- echo '<h1>'.$pdata['name'].'</h1><h4> by '.$owner.'</h4>';
+    if ($pdata['time'] == "0") {
+        $time = "before pastes tracked time";
+    } else {
+        $time = "on ".date("l d F Y", $pdata['time']);
+    }
+if ($_GET['nyp'] == "yes") {
+    echo '<div class="alert alert-danger"><b>Error:</b> This paste does not belong to you.</div>';
+}
+ echo '<h1>'.$pdata['name'].'</h1><h4> by '.$owner.' | made '.$time.'</h4>';
  echo '<div class="paste"><pre><code>'.htmlspecialchars($pdata['contents']).'</code></pre></div>';
- echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a><a class="btn btn-success" id="copy" href="#">Copy</a>';
+ echo '<a class="btn btn-primary" href="raw.php?id='.$_GET['id'].'">Raw</a> <a class="btn btn-success" id="copy" href="#">Copy</a> <a class="btn btn-warning" id="copy" href="edit.php?id='.$_GET['id'].'">Edit</a>';
 } else {
     echo '<h1>New Paste</h1>';
     echo '<form method="POST" action="api.php"> Title:';
