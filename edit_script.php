@@ -6,7 +6,7 @@ $id = $_POST['id'];
 $result = mysqli_query($con,"SELECT * FROM users WHERE email='".$_COOKIE['login']."'");
 $user_data = mysqli_fetch_array($result);
 $owner = $user_data['username'];
-if ($owner == $paste_data['owner']) {
+if ($_COOKIE['login'] and $owner == $paste_data['owner']) {
 mysqli_query($con,"UPDATE pastes SET contents = '".$_POST['paste']."' WHERE id='".$_POST['id']."'");
 header('Location: index.php?id=' . $id);
 } else {
