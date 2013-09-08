@@ -1,0 +1,3 @@
+# Enable Rewrite Engine
+RewriteEngine on
+RewriteRule ^(\w+)/?$ index.php?id=$1  
