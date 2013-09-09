@@ -58,3 +58,11 @@ if ($_COOKIE['login']) {
 }
 ?>
 </nav>
+<?php
+if (file_exists('note.txt')) {
+  $note = file_get_contents('note.txt');
+  if (!$note = " ") {
+  echo '<div class="alert alert-success"><b>Note:</b> '.$note.'</a></div>';
+  }
+}
+?>
