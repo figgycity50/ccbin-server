@@ -31,14 +31,17 @@
 <body>
 <nav class="navbar navbar-default">
 <a class="navbar-brand" href="index.php"><img src="logo.png" alt="CCbin"></a>
-<div class="pull-right">
+<script src="http://code.jquery.com/jquery.js"></script>
+<div class="navbar-right">
 <?php
 if ($_COOKIE['login']) {
 ?>
-<div class="dropdown">
+<ul class="dropdown" style="list-style-type: none;">
+<li class="dropdown">
   <!-- Link or button to toggle dropdown -->
   <a data-toggle="dropdown" href="#" class="dropdown-toggle navbar-text" style="text-decoration: none;">
   <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>?s=24&d=mm"> <?php echo $_COOKIE['login']; ?>
+   <b class="caret"></b>
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <li role="presentation"><a role="menuitem" tabindex="-1" href="pastes.php">My pastes</a></li>
@@ -46,12 +49,17 @@ if ($_COOKIE['login']) {
     <li role="presentation"><a role="menuitem" tabindex="-1" href="index.php">New paste</a></li>
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="logout.php">Log out</a></li>
+    <li role="search"><form method="GET" action="search.php" id="search" class="navbar-form" role="search">
+               <input id="speech-input-field" class="form-control" type="text" x-webkit-speech="" name="q" oninput="$( '#search' ).submit();" style="display: inline; width: 100%">
+<input type="hidden" name="tts" value="0">
+  </form></li>
   </ul>
-</div>
+</li>
+</ul>
 <?php
 } else {
 ?>
-<ul class="nav navbar-nav">
+<ul class="nav navbar-nav" style="display:inline;">
 <li><a href="login.php">Log In</a></li>
 </div>
 <?php

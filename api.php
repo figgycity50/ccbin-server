@@ -55,7 +55,7 @@ $time = time();
 //make the paste
 mysqli_query($con,"INSERT INTO pastes SET time = '" . $time . "', id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "', owner = '".$user_data['username']."'");
 if ($_POST['head'] == 'true') {
-    header("Location: index.php?id=".$code);
+    header("Location: ".$code);
 } else
 echo $code;
 }
