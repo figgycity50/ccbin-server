@@ -50,7 +50,7 @@ if ($_COOKIE['login']) {
     <li role="presentation" class="divider"></li>
     <li role="presentation"><a role="menuitem" tabindex="-1" href="logout.php">Log out</a></li>
     <li role="search"><form method="GET" action="search.php" id="search" class="navbar-form" role="search">
-               <input id="speech-input-field" class="form-control" type="text" x-webkit-speech="" name="q" oninput="$( '#search' ).submit();" style="display: inline; width: 100%">
+               <input id="speech-input-field" class="form-control" type="search" x-webkit-speech="" name="q" onwebkitspeechchange="$( '#search' ).submit();" style="display: inline; width: 100%">
 <input type="hidden" name="tts" value="0">
   </form></li>
   </ul>
