@@ -7,8 +7,9 @@ include_once 'header.php';
 //step 1.5. create the ccbin_get function
 function ccbin_get() {
  $id = $_GET['id'];
- $response = file_get_contents("http://figgycity50.kd.io/ccbin/api.php?type=get&data=json&id=".$id);
- $paste_data = json_decode($response, true);
+ $con = mysqli_connect("fdb3.biz.nf","1504774_ccbin","NtioNt10","1504774_ccbin");
+ $result = mysqli_query($con,"SELECT * FROM pastes WHERE id='".$id."'");
+ $paste_data = mysqli_fetch_array($result);
  return $paste_data;
 }
 //step 2. check for an id in the url

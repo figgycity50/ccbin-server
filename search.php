@@ -5,7 +5,7 @@ if ($_GET['email']) {
 } else {
     $email = $_COOKIE['login'];
 }
-$con = mysqli_connect("localhost","root","NtioNt10","ccbin");
+$con = mysqli_connect("fdb3.biz.nf","1504774_ccbin","NtioNt10","1504774_ccbin");
 
 $result = mysqli_query($con,"SELECT * FROM users WHERE email='".$email."'");
 $user_data = mysqli_fetch_array($result);

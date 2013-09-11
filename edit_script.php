@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","root","NtioNt10","ccbin");
+$con = mysqli_connect("fdb3.biz.nf","1504774_ccbin","NtioNt10","1504774_ccbin");
 $id = $_POST['id'];
 $response = file_get_contents("http://figgycity50.kd.io/ccbin/api.php?type=get&data=json&id=".$id);
 $paste_data = json_decode($response, true);
