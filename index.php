@@ -10,12 +10,21 @@ function ccbin_get() {
  $con = mysqli_connect("fdb3.biz.nf","1504774_ccbin","NtioNt10","1504774_ccbin");
  $result = mysqli_query($con,"SELECT * FROM pastes WHERE id='".$id."'");
  $paste_data = mysqli_fetch_array($result);
+ $resul2 = mysqli_query($con,"SELECT * FROM users WHERE email='".$_COOKIE['login']."'");
+ $user_data = mysqli_fetch_array($resul2);
+ if ($paste_data['privacy'] == "private" and $user_data['username'] != $paste_data['owner']) {
+    return "private"
+ }
  return $paste_data;
 }
 //step 2. check for an id in the url
 if ($_GET['id']) {
     $pdata = ccbin_get();
     //var_dump($pdata);
+    if ($pdata == "private") {
+    echo '<div class="alert alert-danger"><b>Error:</b> This paste is private and does not belong to you.</a></div>';
+    exit;
+    }
     if ($pdata['owner'] == "") {
         $owner = "a guest user";
     } else {
@@ -36,6 +45,10 @@ if ($_GET['nyp'] == "yes") {
     echo '<h1>New Paste</h1>';
     echo '<form method="POST" action="api.php"> Title:';
     echo '<input type="text" name="title" class="form-control"><br>';
+    echo '<select name="privacy">';
+    echo '<option value="private" active>Private</option>';
+    echo '<option value="public">Public</option>';
+    echo '</select>';
     echo '<textarea name="paste" style="width:100%; height:100%; resize: none;" class="form-control"></textarea><br>';
     echo '<input type="hidden" name="type" value="make">';
     echo '<input type="hidden" name="head" value="true">';

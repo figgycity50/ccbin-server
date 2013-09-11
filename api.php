@@ -53,7 +53,7 @@ $code = get_random_string($pattern, 6);
 //make a UNIX timestamp
 $time = time();
 //make the paste
-mysqli_query($con,"INSERT INTO pastes SET time = '" . $time . "', id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "', owner = '".$user_data['username']."'");
+mysqli_query($con,"INSERT INTO pastes SET privacy = '"$_POST['privacy']"', time = '" . $time . "', id = '" . $code . "', name = '" . $_POST['title'] . "', contents = '" . $_POST['paste'] . "', owner = '".$user_data['username']."'");
 if ($_POST['head'] == 'true') {
     header("Location: ".$code);
 } else
