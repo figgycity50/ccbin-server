@@ -13,7 +13,7 @@ function ccbin_get() {
  $resul2 = mysqli_query($con,"SELECT * FROM users WHERE email='".$_COOKIE['login']."'");
  $user_data = mysqli_fetch_array($resul2);
  if ($paste_data['privacy'] == "private" and $user_data['username'] != $paste_data['owner']) {
-    return "private"
+    return "private";
  }
  return $paste_data;
 }
