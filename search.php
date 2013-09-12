@@ -14,7 +14,7 @@ $user_data = mysqli_fetch_array($result);
 <div class="col-md-1"></div>
 <div class="col-md-8">
 <?php
-$pastes = mysqli_query($con,"SELECT * FROM pastes WHERE owner = '".$user_data['username']."'");
+$pastes = mysqli_query($con,"SELECT * FROM pastes WHERE name LIKE '%".$_GET['q']."%'");
 
 echo "<table border='1' class='table table-bordered'>
 <tr>
