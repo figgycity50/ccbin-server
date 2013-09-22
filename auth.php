@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("fdb3.biz.nf","1504774_ccbin","NtioNt10","1504774_ccbin");
+require_once 'db.php';
 // Check connection
 if (mysqli_connect_errno())
   {

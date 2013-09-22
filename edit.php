@@ -1,7 +1,7 @@
 <?php
 include_once 'header.php';
  $id = $_GET['id'];
- $response = file_get_contents("http://figgycity50.kd.io/ccbin/api.php?type=get&data=json&id=".$id);
+ $response = file_get_contents("http://ccbin.blaizecraft.com/api.php?type=get&data=json&id=".$id);
  $paste_data = json_decode($response, true);
 ?>
 <h1>Edit paste</h1>

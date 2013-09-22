@@ -1,0 +1,24 @@
+@font-face {
+	font-family: 'Inconsolata';
+	src: url('fonts/Inconsolata.eot');
+	src: local('?'), url('fonts/Inconsolata.woff') format('woff'), url('fonts/Inconsolata.ttf') format('truetype'), url('fonts/Inconsolata.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.wrapper{ 
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+}
+.footer{
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:41px;
+   width:100%;
+   background:#999;
+}
+
+
+
+
