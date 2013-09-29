@@ -73,7 +73,8 @@
 
   session_start();
 
-  $_SESSION['login'] = $input_email;
+  $_SESSION["email"] = $input_email;
+  $_SESSION["uname"] = $input_username;
 
   header("Location: success.php");
 ?>
