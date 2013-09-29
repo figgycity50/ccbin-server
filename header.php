@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<?php 
-function curPageName() {
- return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
-}
-//$curpage = curPageName();
-//if($curpage == 'profile.php'){ echo "class='active'";}
+<?php
+	session_start();
+	function curPageName() {
+		return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+	}
 ?>
 <html>
-<head>
-<title>CCbin</title>
-<!--CSS-->
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/mobile.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/core.css">
-	<link rel="stylesheet prefetch" href="css/tomorrow-night.min.css">
-<!--JavaScript -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="js/parsley.min.js"></script>
-	<script src="js/autoresize.js"></script>
-	<script src="js/highlight.pack.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-		  $('pre').each(function(i, e) {
-			hljs.highlightBlock(e);
-		  });
-		});
-		$('.dropdown-toggle').dropdown();
-	    $('#loginBtn').click($('#myModal').modal('toggle'));
-	    hljs.tabReplace = '    ';
-	    hljs.initHighlightingOnLoad();
-	</script>
-	<link rel="shortcut icon" href="favicon.ico" />
+	<head>
+		<title>CCbin</title>
+		<!--CSS-->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mobile.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/core.css">
+		<link rel="stylesheet prefetch" href="css/tomorrow-night.min.css">
+		<!--JavaScript -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="js/parsley.min.js"></script>
+		<script src="js/autoresize.js"></script>
+		<script src="js/highlight.pack.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			  $('pre').each(function(i, e) {
+				hljs.highlightBlock(e);
+			  });
+			});
+			$('.dropdown-toggle').dropdown();
+		    $('#loginBtn').click($('#myModal').modal('toggle'));
+		    hljs.tabReplace = '    ';
+		    hljs.initHighlightingOnLoad();
+		</script>
+		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -41,12 +40,12 @@ function curPageName() {
 
 			<div class="navbar-right">
 				<?php
-				if ($_COOKIE['login']) {
+				if (isset($_SESSION["email"])) {
 				?>
 				<ul class="dropdown" style="list-style-type: none;">
 					<li class="dropdown">
 					  <a data-toggle="dropdown" href="#" class="dropdown-toggle navbar-text" style="text-decoration: none;">
-					  <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>?s=24&d=mm"> <?php echo $_COOKIE['login']; ?>
+					  <img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim( $_COOKIE['login'] ) ) ); ?>?s=24&d=mm"> <?php echo $_SESSION["email"]; ?>
 					   <b class="caret"></b>
 					  </a>
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">

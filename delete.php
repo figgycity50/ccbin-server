@@ -1,15 +1,33 @@
 <?php
-require_once 'db.php';
-$id = $_POST['id'];
-$response = file_get_contents("http://ccbin.blaizecraft.com/api.php?type=get&data=json&id=".$id);
-$paste_data = json_decode($response, true);
-$result = mysqli_query($con,"SELECT * FROM users WHERE email='".$_COOKIE['login']."'");
-$user_data = mysqli_fetch_array($result);
-$owner = $user_data['username'];
-if ($_COOKIE['login'] and $owner == $paste_data['owner']) {
-mysqli_query($con,"DELETE FROM pastes WHERE id='".$_POST['id']."'");
-header('Location: profile.php');
-} else {
-header('Location: index.php?id=' . $id . '&nyp=yes');
-}
+  if (!isset($_POST["id"])) {
+    die("No ID supplied");
+  }
+
+  require_once("settings.php");
+  
+  $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+  // Check connection
+  if (mysqli_connect_errno()) {
+    die("Failed to connect to MySQL: " . mysqli_connect_error());
+  }
+
+  $id = urldecode($_POST["id"]);
+  $response = file_get_contents("http://ccbin.blaizecraft.com/api.php?type=get&data=json&id=".$id);
+  $paste_data = json_decode($response, true);
+
+  session_start();
+
+  if (strcmp($_SESSION["uname"], $paste_data["owner"]) != 0) {
+    header('Location: index.php?id=' . $id . '&nyp=yes');
+  }
+
+  $qry = "DELETE FROM pastes WHERE id = ?;";
+  $stmt = $con->prepare($qry);
+  $stmt->bind_param("s", urldecode($_POST["id"]));
+  if (!$stmt->execute()) {
+    die("Database error");
+  }
+
+  header('Location: profile.php');
 ?>
